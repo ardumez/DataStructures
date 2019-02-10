@@ -4,13 +4,48 @@ using System.Text;
 
 namespace DataStructures
 {
-    public class BinaryTree
+    public class BinarySearchTree
     {
         private Node _root;
 
-        public void Insert(int parent, int value)
+        public void Insert(int value)
+        {
+            if (_root == null)
+            {
+                _root = new Node(value);
+                return;
+            }
+
+            if (value < _root.Value)
+            {
+                _root.Left = new Node(value);
+                return;
+            }
+
+            if (value > _root.Value)
+            {
+                _root.Right = new Node(value);
+                return;
+            }
+        }
+
+        /// <summary>
+        /// AVL Balance 
+        /// </summary>
+        public void InsertAndBalance(int value)
         {
 
+        }
+
+        private void Balance(Node node)
+        {
+            if (node.Left != null)
+            {
+                if (node.Left.Left != null)
+                {
+
+                }
+            }
         }
 
         public void GetHeight()
@@ -49,6 +84,10 @@ namespace DataStructures
 
     public class Node
     {
+        public Node(int value)
+        {
+            Value = value;
+        }
         public int Value { get; set; }
         public Node Left { get; set; }
         public Node Right { get; set; }
